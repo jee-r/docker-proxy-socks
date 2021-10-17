@@ -12,7 +12,7 @@ A docker image for [proxy sock5](https://en.wikipedia.org/wiki/SOCKS#SOCKS5) wit
 
 | Tags | Size | Platforms | Build |
 |-|-|-|-|
-| `latest`, `master` | [![Master Image Size](https://img.shields.io/docker/image-size/j33r/proxy-socks/latest?style=flat-square)](https://hub.docker.com/r/j33r/proxy-socks/tags?page=1&name=master) | `amd64` | [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/jee-r/docker-proxy/Deploy/master?style=flat-square)](https://github.com/jee-r/docker-proxy-socks/actions/workflows/deploy.yaml?query=branch%3Amaster)
+| `latest`, `master` | [![Master Image Size](https://img.shields.io/docker/image-size/j33r/proxy-socks/latest?style=flat-square)](https://hub.docker.com/r/j33r/proxy-socks/tags?page=1&name=master) | `amd64` | [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/jee-r/docker-proxy-socks/Deploy/master?style=flat-square)](https://github.com/jee-r/docker-proxy-socks/actions/workflows/deploy.yaml?query=branch%3Amaster)
 | `dev` | [![Dev Image Size](https://img.shields.io/docker/image-size/j33r/proxy-socks/dev?style=flat-square)](https://hub.docker.com/r/j33r/proxy-socks/tags?page=1&name=dev)  | `amd64`| [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/jee-r/docker-proxy-socks/Deploy/dev?style=flat-square)](https://github.com/jee-r/docker-proxy-socks/actions/workflows/deploy.yaml?query=branch%3Adev)
 
 # What is a Proxy Socks ?
