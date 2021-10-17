@@ -1,30 +1,36 @@
-FROM alpine:3.9
+FROM alpine:3.14
+
+LABEL ddmaintainer="Jee <jee[at]jeer.fr>"
+
+LABEL name="git-mirror" \
+    	maintainer="Jee jee@jeer.fr" \
+      description="proxy socks5 with autoreonnect and healthcheck" \
+	    url="https://github.com/jee-r/docker-proxy" \
+      org.label-schema.vcs-url="https://github.com/jee-r/docker-proxy" \
+      org.opencontainers.image.source="https://github.com/jee-r/docker-proxy"
+
+COPY rootfs /
 
 ENV REMOTEHOST="CHANGE_ME" \
 	REMOTEUSER="CHANGE_ME" \
 	REMOTEPORT="CHANGE_ME" \
-	LOCALPORT="7890" \
-	PUID="1000" \
-	GUID="1000" 
+	LOCALPORT="7890" 
 
-RUN apk add --upgrade \
-				  autossh \ 
-				  curl \
-				  su-exec \
-				  tini \
-	&& rm -rf /tmp/* /var/cache/apk/*
-
-COPY run.sh /usr/local/bin/run.sh
-COPY healthcheck.sh /usr/local/bin/healthcheck.sh
-
-RUN chmod +x /usr/local/bin/*
-
-HEALTHCHECK --interval=60s --timeout=20s CMD ["su-exec", "abc:abc", "healthcheck.sh"]
+RUN apk update && \
+	apk upgrade --no-cache && \
+	apk add --upgrade --no-cache \
+		autossh \ 
+		curl \
+    sshpass && \
+	chmod +x \
+		/usr/local/bin/entrypoint.sh \
+		/usr/local/bin/healthcheck.sh && \
+	rm -rf /tmp/* /var/cache/apk/* 
 
 EXPOSE 7890
-
 VOLUME /config
 
-LABEL maintainer="FLiP <bs-flip@protonmail.com>"
+HEALTHCHECK --interval=5m --timeout=60s --start-period=30s \
+    CMD /usr/local/bin/healthcheck.sh || exit 1
 
-CMD ["run.sh"]
+ENTRYPOINT ["/us/local/bin/entrypoint.sh"]
