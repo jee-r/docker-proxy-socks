@@ -8,5 +8,5 @@ elif [ ! -z $REMOTEPWD ]; then
   echo "Trying to connect with password"
   /usr/bin/sshpass -p "$REMOTEPWD" /usr/bin/autossh -M 0 -N -D 0.0.0.0:$LOCALPORT -p $REMOTEPORT $REMOTEUSER@$REMOTEHOST -o "PubkeyAuthentication=no" -o "PasswordAuthentication=yes" -o "StrictHostKeyChecking=false" -o "ServerAliveInterval=180" 
 else 
-  echo 'You must provide a password or a privet ssh-key'
+  echo 'You must provide a password or a private ssh-key'
 fi

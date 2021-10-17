@@ -1,3 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-exec /usr/bin/ssh -4 -D 0.0.0.0"$LOCALPORT" -C  -N -o "PubkeyAuthentication=yes" -o "PasswordAuthentication=no" -o "StrictHostKeyChecking=false" -o "ServerAliveInterval=180" -i /config/key -p "$REMOTEPORT" "$REMOTEUSER"@"$REMOTEHOST"

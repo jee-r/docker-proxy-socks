@@ -1,20 +1,21 @@
 FROM alpine:3.14
 
-LABEL ddmaintainer="Jee <jee[at]jeer.fr>"
-
-LABEL name="git-mirror" \
+LABEL name="docker-proxy-socks" \
     	maintainer="Jee jee@jeer.fr" \
-      description="proxy socks5 with autoreonnect and healthcheck" \
-	    url="https://github.com/jee-r/docker-proxy" \
-      org.label-schema.vcs-url="https://github.com/jee-r/docker-proxy" \
-      org.opencontainers.image.source="https://github.com/jee-r/docker-proxy"
+      description="proxy socks5 with autoreconnect and healthcheck" \
+	    url="https://github.com/jee-r/docker-proxy-socks" \
+      org.label-schema.vcs-url="https://github.com/jee-r/docker-proxy-socks" \
+      org.opencontainers.image.source="https://github.com/jee-r/docker-proxy-socks"
 
 COPY rootfs /
 
 ENV REMOTEHOST="CHANGE_ME" \
-	REMOTEUSER="CHANGE_ME" \
-	REMOTEPORT="CHANGE_ME" \
-	LOCALPORT="7890" 
+	  REMOTEUSER="CHANGE_ME" \
+	  REMOTEPORT="CHANGE_ME" \
+	  LOCALPORT="7890" \
+    UID="1000" \
+    GID="1000" \
+    TZ="Europe/Paris"
 
 RUN apk update && \
 	apk upgrade --no-cache && \
@@ -33,4 +34,4 @@ VOLUME /config
 HEALTHCHECK --interval=5m --timeout=60s --start-period=30s \
     CMD /usr/local/bin/healthcheck.sh || exit 1
 
-ENTRYPOINT ["/us/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
