@@ -3,7 +3,7 @@
 [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/j33r/proxy%E2%88%92socks?style=flat-square)](https://microbadger.com/images/j33r/proxy-socks)
 [![Docker Pulls](https://img.shields.io/docker/pulls/j33r/proxy%E2%88%92socks?style=flat-square)](https://hub.docker.com/r/j33r/proxy-socks)
 [![DockerHub](https://img.shields.io/badge/Dockerhub-j33r/proxy%2D-socks-%232496ED?logo=docker&style=flat-square)](https://hub.docker.com/r/j33r/proxy-socks)
-[![ghcr.io](https://img.shields.io/badge/ghrc%2Eio-jee%2D-r/proxy%2D-socks-%232496ED?logo=github&style=flat-square)](https://ghcr.io/jee-r/proxy)
+[![ghcr.io](https://img.shields.io/badge/ghrc%2Eio-jee%2D-r/proxy%2D-socks-%232496ED?logo=github&style=flat-square)](https://ghcr.io/jee-r/proxy-socks)
 
 A docker image for [proxy sock5](https://en.wikipedia.org/wiki/SOCKS#SOCKS5) with [autossh](https://man.archlinux.org/man/autossh.1) and [sshpass](https://man.archlinux.org/man/sshpass.1).
 
