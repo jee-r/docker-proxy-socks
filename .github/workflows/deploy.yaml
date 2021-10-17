@@ -4,8 +4,12 @@ on:
     branches:
       - master
       - dev
-    schedule:
-      - cron: '33 3 * * 1'
+  schedule:
+    - cron: '33 3 * * 1'
+ 
+on: workflow_dispatch
+
+
 jobs:
   build:
     name: Build, tag, and publish Docker image
