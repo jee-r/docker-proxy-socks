@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.16
 
 LABEL name="docker-proxy-socks" \
     	maintainer="Jee jee@jeer.fr" \
