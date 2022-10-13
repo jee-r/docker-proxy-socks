@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GETIP=$(curl --silent --socks5 127.0.0.1:"$LOCALPORT" ifconfig.co)
+GETIP=$(curl --silent --show-error --socks5 127.0.0.1:"$LOCALPORT" --connect-timeout 100 --max-time 119 https://ifconfig.co)
 
 if [ "$?" == 0 ]; then 
   echo "PROXY OK $GETIP" && exit 0
